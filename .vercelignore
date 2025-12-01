@@ -1,0 +1,8 @@
+backend/
+api/
+data/
+venv/
+.venv/
+*.db
+*.pkl
+requirements.txt
