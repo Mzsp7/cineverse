@@ -5,7 +5,11 @@ from datetime import datetime, timedelta
 # -------------------------------------------------
 # Database setup
 # -------------------------------------------------
-sqlite_file_name = "database_v2.db"
+if os.environ.get("VERCEL"):
+    sqlite_file_name = "/tmp/database_v2.db"
+else:
+    sqlite_file_name = "database_v2.db"
+
 sqlite_url = f"sqlite:///{sqlite_file_name}"
 
 engine = create_engine(sqlite_url, echo=False, connect_args={"check_same_thread": False})
